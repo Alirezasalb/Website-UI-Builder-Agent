@@ -187,4 +187,3 @@ This project is for demonstration, research, and internal use only.
 
 > 🔮 *The future of frontend development is conversational.*  
 > Try it. Iterate. Ship.
-```
