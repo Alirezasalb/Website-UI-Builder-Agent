@@ -4,8 +4,7 @@ An AI-powered autonomous agent that designs and builds responsive websites from 
 
 > ✨ *Describe a UI → Agent plans, writes, and deploys live HTML/CSS/JS — all in your browser.*
 
-![AI Website Builder Demo](https://via.placeholder.com/1200x600/0a0f1c/4da6ff?text=Website+UI+Builder+Agent+%7C+Dark+Theme+Preview)  
-*(Replace with actual screenshot before publishing)*
+
 
 ---
 
