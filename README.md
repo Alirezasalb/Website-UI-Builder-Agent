@@ -138,19 +138,23 @@ Then open:
 
 ```
 app/
-├── api/                  # FastAPI routes: /, /process_request, /sandbox/
-├── core/                 # Agent logic
-│   ├── agents.py         # Router, Planner, Code Agent nodes
-│   ├── graph.py          # LangGraph workflow definition
-│   ├── state.py          # AgentState TypedDict
-│   └── llm.py            # LLM client (OpenAI-compatible, points to vLLM)
+├── api/
+│   └── routes.py                 # HTTP endpoints: /, /process_request, /sandbox/
+├── core/
+│   ├── agents.py                 # Router, Planner, Code Agent nodes
+│   ├── graph.py                  # LangGraph workflow definition
+│   ├── llm.py                    # LLM client (points to vLLM OpenAI API)
+│   └── state.py                  # AgentState TypedDict
 ├── tools/
-│   └── code_editor.py    # Reads/writes website_sandbox/
+│   └── code_editor.py            # Reads/writes files in website_sandbox/
 ├── web/
-│   ├── main.py           # FastAPI app factory
-│   ├── static/           # CSS (dark theme), JS (cache-busting)
-│   └── templates/        # index.html (Jinja2)
-└── website_sandbox/      # 🌐 Generated site: index.html, style.css, script.js
+│   ├── main.py                   # FastAPI app entrypoint
+│   ├── static/
+│   │   ├── css/styles.css        # Dark, modern UI theme
+│   │   └── js/script.js          # Cache-busting sandbox refresh
+│   └── templates/
+│       └── index.html            # Jinja2 frontend template
+└── website_sandbox/              # 🌐 Generated website (index.html, style.css, script.js)
 ```
 
 ---
