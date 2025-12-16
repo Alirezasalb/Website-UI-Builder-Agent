@@ -43,11 +43,11 @@ try:
         openai_api_base=VLLM_API_BASE,
         openai_api_key="EMPTY",
         temperature=0.1,
-        max_tokens=2048,
+        max_tokens=32048,
         request_timeout=REQUEST_TIMEOUT,
     )
-    print(f"✅ Connected to vLLM @ {VLLM_API_BASE}")
+    print(f" Connected to vLLM @ {VLLM_API_BASE}")
 
 except Exception as e:
-    print(f"⚠️ vLLM unavailable, using MockLLM: {e}")
+    print(f"vLLM unavailable, using MockLLM: {e}")
     llm = MockLLM()
