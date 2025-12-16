@@ -150,8 +150,8 @@ app/
 ├── web/
 │   ├── main.py                   # FastAPI app entrypoint
 │   ├── static/
-│   │   ├── css/styles.css        # Dark, modern UI theme
-│   │   └── js/script.js          # Cache-busting sandbox refresh
+│   │   ├── css/styles.css        # UI theme
+│   │   └── js/script.js          
 │   └── templates/
 │       └── index.html            # Jinja2 frontend template
 └── website_sandbox/              # 🌐 Generated website (index.html, style.css, script.js)
