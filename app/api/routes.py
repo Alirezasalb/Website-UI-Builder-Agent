@@ -24,19 +24,27 @@ user_session_state: AgentState = {
 @router.get("/", response_class=HTMLResponse)
 async def home_view(request: Request):
     """Serve the main agent UI."""
-    # Read the current index.html for display in the textarea
     try:
         with open(os.path.join(WEBSITE_DIR, "index.html"), "r") as f:
             full_html = f.read()
     except FileNotFoundError:
         full_html = ""
 
+    # Preprocess messages for safe Jinja2 rendering
+    chat_history = []
+    for msg in user_session_state["messages"]:
+        msg_type = "user" if isinstance(msg, HumanMessage) else "agent"
+        chat_history.append({
+            "type": msg_type,
+            "content": str(msg.content).strip()
+        })
+
     return templates.TemplateResponse(
         "index.html",
         {
             "request": request,
-            "session_messages": user_session_state["messages"],
-            "current_code": full_html
+            "chat_history": chat_history,
+            "website_code": full_html,
         }
     )
 

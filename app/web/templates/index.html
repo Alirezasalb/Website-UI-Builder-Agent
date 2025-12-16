@@ -17,11 +17,18 @@
             <h2>🤖 Agent Chat & Code</h2>
 
             <div class="chat-history">
-                {% for message in chat_history %}
-                    <div class="chat-message {{ message.type }}">
-                        <strong>{{ message.type }}:</strong> {{ message.content }}
+                {% if chat_history %}
+                    {% for message in chat_history %}
+                        <div class="chat-message {{ 'user' if message.type == 'user' else 'agent' }}">
+                            <strong>[{{ message.type|title }}]:</strong>
+                            <span>{{ message.content }}</span>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <div class="chat-message system">
+                        <em>No messages yet. Enter a prompt to start!</em>
                     </div>
-                {% endfor %}
+                {% endif %}
             </div>
 
             <form class="input-form" method="POST" action="/process_request">
@@ -33,7 +40,7 @@
 
         <div class="card">
             <h2>Current index.html Code</h2>
-            <textarea id="code-editor">{{ website_code }}</textarea>
+            <textarea id="code-editor" readonly>{{ website_code }}</textarea>
         </div>
 
     </div>
