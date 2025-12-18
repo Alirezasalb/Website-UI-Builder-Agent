@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const sandbox = document.getElementById('website-sandbox');
     if (sandbox) {
-        // ✅ Use /sandbox/index.html (not /sandbox_static/)
-        // ✅ Add cache-busting query param
+        //  Use /sandbox/index.html (not /sandbox_static/)
+        //  Add cache-busting query param
         const cacheBuster = Date.now();
         sandbox.src = `/sandbox/index.html?t=${cacheBuster}`;
         console.log("✅ Sandbox refreshed:", sandbox.src);

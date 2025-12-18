@@ -2,7 +2,7 @@ import os
 from langchain.tools import tool
 from app.core.llm import llm
 
-# Assuming WEBSITE_DIR is defined here or imported
+# WEBSITE_DIR is defined here
 WEBSITE_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "website_sandbox")
 
 if not os.path.exists(WEBSITE_DIR):
