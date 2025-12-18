@@ -5,13 +5,13 @@ from app.core.llm import llm
 from app.tools.code_editor import get_current_website_code, save_website_code, code_tools
 
 
-# 1. Router Agent Node
+# Router Agent Node
 def router_node(state: AgentState) -> dict:
     """
     Decides the next step based on the user request and current state.
     """
 
-    # 1. Check if the previous node (Code Agent) requested to END
+    #  Check if the previous node (Code Agent) requested to END
     # This happens when code_agent_node returns {"next_action": "end"}
     if state["next_action"] == "end" and state["code_updated"] == True:
         # If the code was just updated AND the agent thinks the task is finished, we END.
@@ -52,7 +52,7 @@ def router_node(state: AgentState) -> dict:
     return {"next_action": next_action, "code_updated": False}
 
 
-# 2. Planner Agent Node
+# Planner Agent Node
 def planner_node(state: AgentState) -> dict:
     """
     Generates a detailed plan for the Code Agent or updates the existing code
@@ -106,7 +106,7 @@ def planner_node(state: AgentState) -> dict:
 
 
 
-# 3. Code Agent Node (Parsing and Tool Execution)
+# Code Agent Node (Parsing and Tool Execution)
 def code_agent_node(state: AgentState) -> dict:
     """
     Parses the generated code from the Planner and executes the save_website_code tool.
