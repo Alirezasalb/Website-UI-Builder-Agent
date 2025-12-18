@@ -43,7 +43,7 @@ try:
         openai_api_base=VLLM_API_BASE,
         openai_api_key="EMPTY",
         temperature=0.1,
-        max_tokens=32048,
+        max_tokens=8192,
         request_timeout=REQUEST_TIMEOUT,
     )
     print(f" Connected to vLLM @ {VLLM_API_BASE}")
